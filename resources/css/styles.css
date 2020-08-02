@@ -9,3 +9,12 @@ body {
 #navbarHeader {
     background-color: #1e1e1e !important;
 }
+
+img {
+    height: 160px;
+}
+
+.contact-card {
+    margin-top: 4%;
+    background-color: inherit !important;
+}
