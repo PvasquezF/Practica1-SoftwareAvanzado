@@ -35,7 +35,7 @@
                         <path fill-rule="evenodd" d="M12.786 1.072C11.188.752 9.084.71 7.646 2.146A.5.5 0 0 0 7.5 2.5v11a.5.5 0 0 0 .854.354c.843-.844 2.115-1.059 3.47-.92 1.344.14 2.66.617 3.452 1.013A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.276-.447L15.5 2.5l.224-.447-.002-.001-.004-.002-.013-.006-.047-.023a12.582 12.582 0 0 0-.799-.34 12.96 12.96 0 0 0-2.073-.609zM15 2.82v9.908c-.846-.343-1.944-.672-3.074-.788-1.143-.118-2.387-.023-3.426.56V2.718c1.063-.929 2.631-.956 4.09-.664A11.956 11.956 0 0 1 15 2.82z"/></svg>
                     <strong>Mostrar contactos</strong>
                 </a>
-                <a href="#" class="navbar-brand d-flex align-items-center">
+                <a onclick="create10Contacts()" class="navbar-brand d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mr-2" viewBox="0 0 24 13" focusable="false">
                         <path fill-rule="evenodd" d="M5.707 13.707a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391L10.086 2.5a2 2 0 0 1 2.828 0l.586.586a2 2 0 0 1 0 2.828l-7.793 7.793zM3 11l7.793-7.793a1 1 0 0 1 1.414 0l.586.586a1 1 0 0 1 0 1.414L5 13l-3 1 1-3z"/>
                         <path fill-rule="evenodd" d="M9.854 2.56a.5.5 0 0 0-.708 0L5.854 5.855a.5.5 0 0 1-.708-.708L8.44 1.854a1.5 1.5 0 0 1 2.122 0l.293.292a.5.5 0 0 1-.707.708l-.293-.293z"/>
@@ -61,39 +61,18 @@
     <div id="showcontacts" class="contact-card bg-light">
         <div class="container">
             <h1 style="text-align: center; color: white;">Contactos</h1>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card mb-3 shadow-sm">
-                        <img src="https://banner2.cleanpng.com/20180521/ocp/kisspng-computer-icons-user-profile-avatar-french-people-5b0365e4f1ce65.9760504415269493489905.jpg">
-                        <div class="card-body">
-                            <li>Nombre: Pavel</li>
-                            <li>Carné: 201</li>
-                            <li>Edad: 1</li>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ul id="lista" style="color: white; width: fit-content; margin: auto;">
+
+            </ul>
         </div>
     </div>
     <div id="createcontacts" class="contact-card bg-light" style="display: none;">
         <div class="container">
             <h1 style="text-align: center; color: white;">Crear contacto</h1>
             <form id="createform" class="formulario" action="javascript:createContact()">
-                <label style="color: wheat;">Nombre (Obligatorio)</label>
+                <label style="color: wheat;">Nombre</label>
                 <br>
                 <input name="name" type="text" placeholder="Ingrese el nombre" required></input>
-                <br>
-                <label style="color: wheat;">País</label>
-                <br>
-                <input name="country" type="text" placeholder="Ingresa tu país"></input>
-                <br>
-                <label style="color: wheat;">Dirección</label>
-                <br>
-                <input name="address" type="text" placeholder="Ingresa tu dirección"></input>
-                <br>
-                <label style="color: wheat;">Foto</label>
-                <br>
-                <input name="image" type="text" placeholder="Ingresa una url para tu foto"></input>
                 <br>
                 <br>
                 <button type="submit">Crear</button>
