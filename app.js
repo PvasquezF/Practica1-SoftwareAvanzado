@@ -16,7 +16,7 @@ create10Contacts = async() => {
 
     // Creando usuario de 1 en 1
     for (let i = 0; i < 10; i++) {
-        body['name'] = `201503611_${Math.random()*1000}`;
+        body['name'] = `201503611_${Math.round(Math.random()*1000)}`;
         // Obtenemos el resultado de la petición para saber si fue exitosa
         result = result && await doRequest('POST', JSON.stringify(body), '');
     }
