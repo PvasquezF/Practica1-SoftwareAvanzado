@@ -14,8 +14,10 @@ create10Contacts = async() => {
     let result = true;
     let body = {};
 
+    // Creando usuario de 1 en 1
     for (let i = 0; i < 10; i++) {
-        body['name'] = `201503611_${i}`;
+        body['name'] = `201503611_${Math.random()*1000}`;
+        // Obtenemos el resultado de la petición para saber si fue exitosa
         result = result && await doRequest('POST', JSON.stringify(body), '');
     }
 
@@ -28,6 +30,7 @@ create10Contacts = async() => {
 
 // Obtener usuarios
 getContacts = async() => {
+    // Obtenemos los usuarios y utilizamos el filtro para obtener coincidencias con el carnet
     const contacts = await doRequest('GET', null, '&filter[search]=201503611');
     if (contacts) {
         return contacts;
