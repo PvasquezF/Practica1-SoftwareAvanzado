@@ -41,6 +41,9 @@ getContacts = async() => {
 
 // Petición para crear/obtener usuarios
 doRequest = (method, body, extraparams) => {
+    if (!window.localStorage.getItem('token')) {
+        return false;
+    }
     return new Promise(async(resolve, reject) => {
             try {
                 const params = {
@@ -55,7 +58,8 @@ doRequest = (method, body, extraparams) => {
                 const proxy_url = 'https://cors-anywhere.herokuapp.com/';
                 const init = {
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization': window.localStorage.getItem('token')
                     },
                     method
                 };
@@ -75,4 +79,40 @@ doRequest = (method, body, extraparams) => {
         })
         .then(m => { return m; })
         .catch(m => { return m });
+}
+
+oauth2 = () => {
+    return new Promise(async(resolve, reject) => {
+
+            const url = `https://api.softwareavanzado.world/index.php?option=token&api=oauth2`;
+            const proxy_url = 'https://cors-anywhere.herokuapp.com/';
+            const init = {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+                method: 'POST',
+                body: JSON.stringify({
+                    "grant_type": "client_credentials",
+                    "client_id": "sa",
+                    "client_secret": "fb5089840031449f1a4bf2c91c2bd2261d5b2f122bd8754ffe23be17b107b8eb103b441de3771745",
+                }),
+                mode: 'no-cors'
+            };
+            let result = await fetch(url, init);
+            if (result.ok) {
+                result = await result.json();
+                window.localStorage.setItem('token', result.token);
+                resolve(result);
+            } else {
+                alert('Error al autenticar al usuario');
+                reject(false);
+            }
+        })
+        .then(m => {
+            return m;
+        })
+        .catch(m => {
+            return m;
+        });
 }
